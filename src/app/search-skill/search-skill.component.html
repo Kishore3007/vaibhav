@@ -1,0 +1,75 @@
+<div class="SearchSkills">
+    <h3>Search Applicants by Skills, Location, and Experience</h3>
+  
+    <div class="form-group mt-3">
+      <label for="skills">Skills:</label>
+      <input
+        type="text"
+        id="skills"
+        class="form-control"
+        [(ngModel)]="skills"
+        placeholder="Enter skills (comma-separated)"
+      />
+    </div>
+    
+    <div class="form-group mt-3">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        class="form-control"
+        [(ngModel)]="location"
+        placeholder="Enter location"
+      />
+    </div>
+  
+    
+    <div class="form-group mt-3">
+      <label for="yearsOfExperience">Years of Experience:</label>
+      <input
+        type="number"
+        id="yearsOfExperience"
+        class="form-control"
+        [(ngModel)]="years_of_experience"
+        placeholder="Enter years of experience"
+      />
+    </div>
+  
+    
+    <button class="btn btn-primary mt-3" (click)="searchBySkill()">Search</button>
+  
+    
+    <div *ngIf="responseForsearchByYearAndLocation.length > 0" class="mt-5">
+      <h4>Search Results</h4>
+      
+      <!-- <div *ngFor="let applicant of responseForsearchByYearAndLocation" class="card mb-3"> -->
+      <div *ngFor="let applicant of paginatedDataForSkills" class="applicant-item card mb-3 ">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ applicant.name  ||'NA'}}</mat-panel-title>
+            <mat-panel-description>
+              {{ Math.floor(applicant['total experience'] ||'NA') }} years
+            </mat-panel-description>
+            <mat-panel-description>{{ applicant['email address'] ||'NA' }}</mat-panel-description>
+           
+          </mat-expansion-panel-header>
+          <p><b>Current location:</b>{{ applicant['current location'] ||'NA' }}</p>
+          <p><b>Designation:</b> {{ applicant.designation ||'NA'}}</p>
+           <p><b>Primary Skills</b> {{  applicant['primary skills']   ||'NA'}}</p>    
+         
+           <p><b>Secondary Skills:</b> {{ applicant['secondary skills'] || 'NA' }}</p>
+  
+        </mat-expansion-panel>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-secondary" (click)="previousPageForSkills()" [disabled]="currentPage === 1">Previous</button>
+        <button class="btn btn-secondary" (click)="nextPageForSkills()" [disabled]="currentPage * itemsPerPage >= responseForsearchByYearAndLocation.length">Next</button>
+      </div>
+    </div>
+    <div *ngIf="errorMessageForSkills" class="alert alert-danger mt-3">
+      {{ errorMessageForSkills }}
+    </div>
+   
+</div>
+  
+  

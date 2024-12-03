@@ -1,0 +1,94 @@
+.SearchApplicant 
+  {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 85vw;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 50px;
+    padding-top: 40px;
+    position: relative;
+  }
+.SearchApplicant {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 85vw;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 50px;
+  margin-top: 40px;
+ 
+}
+
+  .SearchApplicant:hover {
+      transform: scale(1.05); /* Slight zoom effect for a more noticeable effect */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  }
+  
+  .search-container h3 {
+    color: #555; 
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-container form {
+    margin-bottom: 20px;
+  }
+  
+  .search-container .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .search-container label {
+    /* font-weight: 600; */
+    color: #555;
+  }
+  
+  .search-container input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .search-container button {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .mt-3 {
+    margin-top: 20px;
+  }
+  .search-container ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .search-container ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  

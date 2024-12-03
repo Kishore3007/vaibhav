@@ -1,0 +1,124 @@
+.containerForBestFit {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 85vw;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+  }
+  
+  .containerForBestFit h2 {
+    text-align: center;
+    color:#333; /* Primary color for headings */
+    color: #555; /* Bootstrap primary color */
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;    
+   
+  }
+  
+  .containerForBestFit .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .containerForBestFit .form-group label {
+  
+    color: #333;
+  }
+  
+  .containerForBestFit .form-control {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .containerForBestFit .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+  }
+  
+  .containerForBestFit .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .containerForBestFit .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .containerForBestFit .alert {
+    border-radius: 5px;
+    padding: 15px;
+  }
+  
+  .containerForBestFit table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .containerForBestFit table thead th {
+    background-color: grey;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .containerForBestFit table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .containerForBestFit table tbody td {
+    text-align: center;
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .containerForBestFit table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .containerForBestFit table tbody td:first-child {
+    font-weight:600;
+  }
+  
+  .containerForBestFit table tbody td:last-child {
+    
+    font-weight: bold;
+  }
+  
+  .containerForBestFit input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  
+  .containerForBestFit input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+  
+  .containerForBestFit .form-group .checkbox-label {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .containerForBestFit h4 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  .score{
+    margin-left: 8px;
+  }
