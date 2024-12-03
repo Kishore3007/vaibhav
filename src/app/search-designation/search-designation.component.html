@@ -1,0 +1,62 @@
+<div class="SearchDesignation">
+    <h3>Search Applicant by Designation</h3>
+    <form (ngSubmit)="searchByDesignation()">
+      <div class="form-group">
+        <label for="designation">Designation:</label>
+        <input
+          type="text"
+          id="designation"
+          class="form-control"
+          [(ngModel)]="designation"
+          name="designation"
+          placeholder="Enter designation"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+  
+    
+    <div *ngIf="responseForDesignationSearch" class="mt-3">
+     
+      <h4>Applicant Details:</h4>     
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ responseForDesignationSearch.name }}</mat-panel-title>
+          <mat-panel-description>{{ responseForDesignationSearch['email address'] }}</mat-panel-description>
+          <mat-panel-description> {{ responseForDesignationSearch['total experience'] ? (responseForDesignationSearch['total experience'] / 12 | number:'1.1-1') + ' years' : 'NA' }}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <p><b>Designation:</b> {{ responseForDesignationSearch.designation }}</p>
+        <p><b>Company:</b> {{ responseForDesignationSearch['current company name'] }}</p>
+        <p><b>Contact:</b> {{ responseForDesignationSearch['contact number'] }}</p>
+        <p><b>Current location :</b> {{ responseForDesignationSearch['current location'] }}</p>
+        <p><b>Primary Skills:</b> {{ responseForDesignationSearch['primary skills'].join(', ') }}</p>
+        <p><b>Secondary Skills:</b> {{ responseForDesignationSearch['secondary skills'].join(', ')  ||'NA'}}</p>
+        
+
+        <div *ngIf="responseForDesignationSearch['relevant experience (primary)']">
+          <b>Relevant experience primary:</b>
+          <ul>
+            <li *ngFor="let history of responseForDesignationSearch['relevant experience (primary)'][0]['job history']">
+              <b>Title:</b> {{ history['job title'] }} <br>
+              <b>Company:</b> {{ history['job company'] }} <br>
+              <b>Description:</b> {{ history['job description'] }} <br>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="responseForDesignationSearch['relevant experience (secondary)']">
+          <b>Relevant experience secondary:</b>
+          <ul>
+            <li *ngFor="let project of responseForDesignationSearch['relevant experience (secondary)'][0].projects">
+              <b>Name:</b> {{ project['project name'] }} <br>
+              <b>Company:</b> {{ project['project company'] }} <br>
+              <b>Description:</b> {{ project['project description'] }} <br>
+            </li>
+          </ul>
+        </div>
+      </mat-expansion-panel>
+      </div>
+      <div *ngIf="errorMessageForDesignation" class="alert alert-danger mt-3">
+        {{ errorMessageForDesignation }}
+      </div>
+
+</div>

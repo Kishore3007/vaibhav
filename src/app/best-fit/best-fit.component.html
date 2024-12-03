@@ -1,0 +1,153 @@
+<div class="containerForBestFit mt-4">
+    <h2>Match Applicants by Job Description</h2>
+    
+    <form (ngSubmit)="matchApplicants()">
+      <div class="form-group">
+        <label for="jobDescription">Job Description:</label>
+        <textarea
+          id="jobDescription"
+          class="form-control"
+          [(ngModel)]="jobDescriptionForBestFit"
+          name="jobDescription"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input
+          type="text"
+          id="location"
+          class="form-control"
+          [(ngModel)]="locationForBestFit"
+          name="location"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="experience">Required Years of Experience:</label>
+        <input
+          type="number"
+          id="experience"
+          class="form-control"
+          [(ngModel)]="requiredExperienceForBestFit"
+          name="requiredExperience"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label>Prioritization Factors:</label><br />
+        <div *ngFor="let factor of prioritizationFactorsForBestFit">
+          <input
+            type="checkbox"
+            [(ngModel)]="factor.selected"
+            name="factor-{{ factor.name }}"
+          />
+          <label>{{ factor.name }}</label>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label for="enableSaveScores">Save Scores to Database:</label>
+        <input class="score"
+          type="checkbox"
+          id="enableSaveScores"
+          [(ngModel)]="saveScores"
+          name="enableSaveScores"
+        />
+      </div>
+  
+      <div class="form-group" *ngIf="saveScores">
+        <label for="databaseName">New Database Name:</label>
+        <input
+          type="text"
+          id="databaseName"
+          class="form-control"
+          [(ngModel)]="databaseName"
+          name="databaseName"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Match Applicants</button>
+    </form>
+    <div *ngIf="loadingMessageForBestFit" class="alert alert-info mt-3">
+      {{ loadingMessageForBestFit }}
+    </div>
+  
+    <div *ngIf="errorMessageForBest" class="alert alert-danger mt-3">
+      {{ errorMessageForBest }}
+    </div>
+
+   
+  
+    <div *ngIf="matchedApplicantsForBestFit.length > 0" class="mt-4">
+      <h4>Matched Applicants</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th (click)="sortData('name')">
+              Name
+              <span *ngIf="sortColumn === 'name'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('designation')">
+              Designation
+              <span *ngIf="sortColumn === 'designation'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('contact number')">
+              Contact Number
+              <span *ngIf="sortColumn === 'contact number'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('email address')">
+              Email Address
+              <span *ngIf="sortColumn === 'email address'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('total experience')">
+              Total Experience
+              <span *ngIf="sortColumn === 'total experience'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('current location')">
+              Current Location
+              <span *ngIf="sortColumn === 'current location'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="sortData('score')">
+              Score
+              <span *ngIf="sortColumn === 'score'">
+                {{ sortDirection ? '▲' : '▼' }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let applicant of matchedApplicantsForBestFit">
+            <td>{{ applicant.name }}</td>
+            <td>{{ applicant.designation }}</td>
+            <td>{{ applicant['contact number'] }}</td>
+            <td>{{ applicant['email address'] }}</td>
+            <td>{{ applicant['total experience'] ? (Math.floor(applicant['total experience'] / 12)) : 'Not available' }} years</td>
+
+           
+            <td>{{ applicant['current location'] }}</td>
+            <td>{{ applicant.score ? (Math.round(applicant.score)) : 'Not available' }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+  
