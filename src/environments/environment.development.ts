@@ -3,6 +3,7 @@ import { url } from "node:inspector";
 export const environment = {
     URLBackend:'http://127.0.0.1:8000',
     URLNavbar:'http://localhost:4200',
+    URLNavbarazure:'https://red-cliff-0c9a1740f.4.azurestaticapps.net',
     UrlForFetchingDb: '/fetch-data/',
     UrlForSingleFileExtraction:'/extract-text',
     UrlForMultipleFile:'/extract-text-folder',
