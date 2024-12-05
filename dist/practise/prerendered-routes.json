@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/Bestfit",
+    "/FileProcessing",
+    "/SearchByDesignation",
+    "/SearchByName",
+    "/SearchBySkills"
+  ]
+}
